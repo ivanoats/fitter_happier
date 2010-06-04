@@ -46,15 +46,15 @@ class FitterHappierTest < ActionController::TestCase
     get :git_hash
     assert_response :success
     assert_equal "", @response.session.session_id
-    # expected_body
-    # assert_match expected_body, @response.body
+    expected_body = /[a-f0-9]{40}/
+    assert_match expected_body, @response.body
   end
   
   def test_uptime
     get :uptime
     assert_response :success
     assert_equal "", @response.session.session_id
-    # expected_body = 
-    # assert_match expected_body, @response.body
+    expected_body = %r{Uptime}
+    assert_match expected_body, @response.body
   end
 end
