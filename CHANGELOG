@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+Version 1.2
+===========
+  * Added 2 additional URIs
+    * /fitter_happier/git_hash  => git hash of the current running site
+    * /fitter_happier/uptime => server uptime
+
 Version 1.1
 ===========
   * Added 2 additional URIs

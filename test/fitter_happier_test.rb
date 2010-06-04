@@ -41,4 +41,20 @@ class FitterHappierTest < ActionController::TestCase
     assert_routing('/fitter_happier/site_check', :controller => 'fitter_happier', :action => 'site_check')
     assert_routing('/fitter_happier/database_check', :controller => 'fitter_happier', :action => 'database_check')
   end
+  
+  def test_git_hash
+    get :git_hash
+    assert_response :success
+    assert_equal "", @response.session.session_id
+    # expected_body
+    # assert_match expected_body, @response.body
+  end
+  
+  def test_uptime
+    get :uptime
+    assert_response :success
+    assert_equal "", @response.session.session_id
+    # expected_body = 
+    # assert_match expected_body, @response.body
+  end
 end
