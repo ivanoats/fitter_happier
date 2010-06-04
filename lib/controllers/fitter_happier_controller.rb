@@ -19,6 +19,22 @@ class FitterHappierController < ActionController::Base
     render(:text => "FitterHappier Site and Database Check Passed @ #{time}\nSchema Version: #{version}\n")
   end
   
+  def git_hash
+    render(:text => `git rev-parse HEAD`)
+  end
+  
+  def uptime
+    uptime = `uptime`
+    pid1 = Process.pid # for script/server
+    pid2 = `cat log/mongrel.pid` # for mongrel
+    if pid2 == "" then
+      pid = pid1
+    else
+      pid = pid2
+    end
+    render(:text => "Uptime: #{uptime} <br /> Process: <pre>" + `ps #{pid}` +"</pre>")
+  end
+  
   private
   
   def process_with_silence(*args)
